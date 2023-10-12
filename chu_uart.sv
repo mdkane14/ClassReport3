@@ -43,7 +43,7 @@ module chu_uart
    // decoding logic
    assign wr_dvsr = (write && cs && (addr[1:0]==2'b01));
    assign wr_uart = (write && cs && (addr[1:0]==2'b10));
-   assign rd_uart = (write && cs && (addr[1:0]==2'b11));
+   assign rd_uart = (read && cs && (addr[1:0]==2'b11));
    // slot read interface
    assign rd_data = {22'h000000, tx_full,  rx_empty, r_data};
 endmodule
